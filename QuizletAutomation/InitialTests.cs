@@ -143,7 +143,7 @@ namespace QuizletAutomation
 
         [Test]
         //ToDo
-        public void UserCanAddWordsToModule()
+        public void UserCanAddWordsToModule() //ProfileWindow
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
@@ -155,12 +155,34 @@ namespace QuizletAutomation
                 .SendKeys("tEST35478" + Keys.Tab); Thread.Sleep(3000);
             driver.FindElement(By.XPath("//button[@class='UIButton UIButton--fill UIButton--hero']")).Click();
             Thread.Sleep(5000);
-            driver.FindElement(By.XPath("//div[@class='SiteHeader-createInner']/span[@class='SiteHeader-linkText']")).Click(); Thread.Sleep(4000);
+            driver.FindElement(By.XPath("//div[@class='SiteHeader-createInner']/span[@class='SiteHeader-linkText']")).Click(); Thread.Sleep(5000);
 
-            driver.FindElement(By.XPath("//div[@class='AutoExpandTextarea-wrapper']")).SendKeys("BasicWords"); Thread.Sleep(3000);
-            driver.FindElement(By.XPath("//div[@class='LanguageBarSide LanguageBarSide--word']/span[@class='LanguageBarSide-selectLanguageLink']")).Click(); Thread.Sleep(3000);
-            driver.FindElement(By.XPath("//div[@class='UIInput-content']/input[@aria-activedescendant='react-select-2--option-6']")).SendKeys("Английский" + Keys.Enter); Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//*[@id=\"SetPageTarget\"]/div/div[1]/div[2]/div/div/label/div/div[1]/div[2]/textarea"))
+                .SendKeys("BasicWords"); Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//div[@class='LanguageBarSide LanguageBarSide--word']/span[@class='LanguageBarSide-selectLanguageLink']"))
+                .Click(); Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//div[@class='UIInput-content']/input[@role='combobox']"))
+                .SendKeys("Английский" + Keys.Enter); Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//div[@class='LanguageBarSide LanguageBarSide--def']/span[@class='LanguageBarSide-selectLanguageLink']"))
+                .Click(); Thread.Sleep(3000);
+            //driver.FindElement(By.XPath("//*[@id=\"react - select - 3--value\"]/div[2]/label/div/input"))
+               // .SendKeys("Русский" + Keys.Enter); Thread.Sleep(3000);
 
+            driver.FindElement(By.XPath("//*[@id=\"SetPageTarget\"]/div/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/div[3]/div[1]/div/div/div[1]/div/div/label/div/div[1]/div[2]/textarea"))
+                .SendKeys("World" + Keys.Tab); Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//*[@id=\"SetPageTarget\"]/div/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/div[3]/div[1]/div/div/div[2]/div/div/label/div/div[1]/div[2]/textarea"))
+                .SendKeys("Мир" + Keys.Tab); Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//*[@id=\"SetPageTarget\"]/div/div[2]/div/div[2]/div[1]/div[1]/div[3]/div/div[3]/div[1]/div/div/div[1]/div/div/label/div/div[1]/div[2]/textarea"))
+                .SendKeys("Test" + Keys.Tab); Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//*[@id=\"SetPageTarget\"]/div/div[2]/div/div[2]/div[1]/div[1]/div[3]/div/div[3]/div[1]/div/div/div[2]/div/div/label/div/div[1]/div[2]/textarea"))
+                .SendKeys("Тест" + Keys.Enter); Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//button[@class='UIButton']/span[.='Да']")).Click();
+            driver.FindElement(By.XPath("//button[@class='UIButton']/span[.='Создать']")).Click(); Thread.Sleep(6000);
+
+            string moduleTitle = (driver.FindElement(By.XPath("//h3[@class='UIHeading UIHeading--three']/span[.='Вы создали модуль']"))).Text;
+
+            Assert.AreEqual(moduleTitle, "Вы создали модуль");
+            //driver.Close();
         }
         }
 }
