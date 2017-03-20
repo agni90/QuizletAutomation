@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26020.0
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizletAutomation", "QuizletAutomation\QuizletAutomation.csproj", "{BB4B92ED-E2AC-4FFB-ADC6-1D526ACB3D6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI_Tests", "UI_Tests\UI_Tests.csproj", "{BB4B92ED-E2AC-4FFB-ADC6-1D526ACB3D6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Page_Models", "Page_Models\Page_Models.csproj", "{8FF33D97-85C7-4759-BD79-DD9C356F6923}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BB4B92ED-E2AC-4FFB-ADC6-1D526ACB3D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB4B92ED-E2AC-4FFB-ADC6-1D526ACB3D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB4B92ED-E2AC-4FFB-ADC6-1D526ACB3D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF33D97-85C7-4759-BD79-DD9C356F6923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF33D97-85C7-4759-BD79-DD9C356F6923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF33D97-85C7-4759-BD79-DD9C356F6923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF33D97-85C7-4759-BD79-DD9C356F6923}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

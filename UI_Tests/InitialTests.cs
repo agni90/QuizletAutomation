@@ -10,7 +10,7 @@ namespace QuizletAutomation
     public class InitialTests
     {
         [Test]
-        public void NavigateToMainPage()
+        public void NavigateToMainPage() //main page
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
@@ -22,7 +22,7 @@ namespace QuizletAutomation
         }
 
         [Test]
-        public void RegistrationViaBeginButtonIsOpened()
+        public void RegistrationViaBeginButtonIsOpened()//main page
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
@@ -32,11 +32,11 @@ namespace QuizletAutomation
                 ("//h3[@class='UIHeading UIHeading--three']/span[.='Зарегистрироваться']"))).Text;
 
             Assert.AreEqual(title, "Зарегистрироваться");
-            driver.Close();
+            //driver.Close();
         }
 
         [Test]
-        public void RegistrationViaRegisterButtonIsOpened()
+        public void RegistrationViaRegisterButtonIsOpened()//main page
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
@@ -50,7 +50,7 @@ namespace QuizletAutomation
         }
 
         [Test]
-        public void EmailFormIsActive()
+        public void EmailFormIsActive()//main
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
@@ -61,11 +61,11 @@ namespace QuizletAutomation
                 ("//legend[@class='UIFieldset-legend']/span[.='Дата рождения']"))).Text;
 
             Assert.AreEqual(buttonName, "ДАТА РОЖДЕНИЯ");
-            driver.Close();
+            //driver.Close();
         }
 
         [Test]
-        public void UserCanRegisterViaEmail()
+        public void UserCanRegisterViaEmail()//main
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
@@ -89,7 +89,7 @@ namespace QuizletAutomation
         }
 
         [Test]
-        public void LoginFormIsActive()
+        public void LoginFormIsActive()//main 
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
@@ -103,7 +103,7 @@ namespace QuizletAutomation
         }
         
         [Test]
-        public void UserCanLoginWithValidEmail()
+        public void UserCanLoginWithValidEmail()//main
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
@@ -121,7 +121,7 @@ namespace QuizletAutomation
         }
 
         [Test]
-        public void UserCanOpenCreateFirstModuleOnlyPage()
+        public void UserCanOpenCreateFirstModuleOnlyPage()//profile
         {
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
