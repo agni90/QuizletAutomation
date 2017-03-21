@@ -22,7 +22,7 @@ namespace QuizletAutomation
         [TearDown]
         public void CloseDriver()
         {
-           // _chromeDriver.Close();
+            _chromeDriver.Close();
         }
     }
 }

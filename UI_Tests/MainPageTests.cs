@@ -16,5 +16,30 @@ namespace QuizletAutomation
             HomePage homePage = new HomePage( _chromeDriver);
             Assert.AreEqual(homePage.Title, "Учебные средства и карточки – совершенно бесплатно | Quizlet");
         }
+
+        [Test]
+        public void Given_home_page_When_click_getStarted_button_Then_signUp_popup_is_shown()
+        {
+            HomePage homePage = new HomePage(_chromeDriver);
+            homePage.GetStartedButton.Click();
+            Assert.AreEqual(homePage.RegistrationPopupTitle.Text, "Зарегистрироваться");
+        }
+
+        [Test]
+        public void Given_home_page_When_click_signUp_button_Then_signUp_popup_is_shown()
+        {
+            HomePage homePage = new HomePage(_chromeDriver);
+            homePage.SignUpButton.Click();
+            Assert.AreEqual(homePage.RegistrationPopupTitle.Text, "Зарегистрироваться");
+        }
+
+        [Test]
+        public void Given_home_page_When_click_getStarted_button_and_signUp_via_email_Then_signUp_popup_is_shown()
+        {
+            HomePage homePage = new HomePage(_chromeDriver);
+            homePage.GetStartedButton.Click();
+            homePage.SignUpWithEmail.Click();
+            Assert.AreEqual(homePage.GetBirthdayTitle.Text, "ДАТА РОЖДЕНИЯ");
+        }
     }
 }
