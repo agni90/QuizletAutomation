@@ -17,6 +17,7 @@ namespace Page_Models
         public HomePage(IWebDriver driver)
         {
             _driver = driver;
+            PageFactory.InitElements(_driver, this);
         }
 
         public string Title
@@ -28,19 +29,19 @@ namespace Page_Models
         }
 
         [FindsBy(How = How.LinkText, Using = _buttonName)]
-        public IWebElement GetStartedButton { get; }
-
+        public IWebElement GetStartedButton { get; set; }
+      
         [FindsBy(How = How.XPath, Using = _registrationPopupTitle)]
-        public IWebElement RegistrationPopupTitle { get; }
+        public IWebElement RegistrationPopupTitle { get; set; }
 
         [FindsBy(How = How.XPath, Using = _signUpButton)]
-        public IWebElement SignUpButton { get; }
+        public IWebElement SignUpButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = _signUpWithEmail)]
-        public IWebElement SignUpWithEmail { get; }
+        public IWebElement SignUpWithEmail { get; set; }
 
         [FindsBy(How = How.XPath, Using = _birthdayTitle)]
-        public IWebElement GetBirthdayTitle { get; }
+        public IWebElement GetBirthdayTitle { get; set; }
 
     }
 }
