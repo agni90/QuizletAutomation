@@ -41,5 +41,15 @@ namespace QuizletAutomation
             homePage.SignUpWithEmail.Click();
             Assert.AreEqual(homePage.GetBirthdayTitle.Text, "ДАТА РОЖДЕНИЯ");
         }
+
+        [Test]
+        public void Given__When__Then()
+        {
+            HomePage homePage = new HomePage(_chromeDriver);
+            homePage.GetStartedButton.Click();
+            homePage.SignUpWithEmail.Click();
+            homePage.SelectBirthday("10", "февраль", "2001");
+
+        }
     }
 }
