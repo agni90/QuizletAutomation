@@ -1,8 +1,4 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using System.Threading;
 using Page_Models;
 
 namespace QuizletAutomation
@@ -43,13 +39,24 @@ namespace QuizletAutomation
         }
 
         [Test]
-        public void Given__When__Then()
+        public void Given_register_new_user_via_email_When_fill_required_fields_and_submit_Then_new_user_was_created()
         {
             HomePage homePage = new HomePage(_chromeDriver);
+            RegisterNewUserPopup registrationPage = new RegisterNewUserPopup(_chromeDriver);
+            var newUser = new NewQuizletUser
+            {
+                Username = "12NewUser",
+                Email = "12newUser@gmail.com",
+                Password = "1234qweRty/",
+                RetypePassword = "1234qweRty/"
+            };
+
             homePage.GetStartedButton.Click();
             homePage.SignUpWithEmail.Click();
-            homePage.SelectBirthday("10", "февраль", "2001");
-
+            registrationPage.SelectBirthday("10", "февраль", "2001");
+            registrationPage.FillFieldsDuringRegistration(newUser);
+            registrationPage.SubmitNewUserCreation();
+            Assert.AreEqual(homePage.WelcomePopupTitle.Text, "Добро пожаловать в Quizlet!");            
         }
     }
 }

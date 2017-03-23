@@ -21,6 +21,7 @@ namespace QuizletAutomation
             new SelectElement(driver.FindElement(By.Name("birth_day"))).SelectByText("10");
             new SelectElement(driver.FindElement(By.Name("birth_month"))).SelectByText("февраль");
             new SelectElement(driver.FindElement(By.Name("birth_year"))).SelectByText("2001");
+
             driver.FindElement(By.Name("username")).SendKeys("A6557test10" + Keys.Tab); Thread.Sleep(6000);
             driver.FindElement(By.XPath("//div[@class='UIInput-content']/input[@name='email']")).SendKeys("1517te5st0@gmail.com" + Keys.Tab); Thread.Sleep(6000);
             driver.FindElement(By.Name("password1")).SendKeys("tEST35478" + Keys.Tab); Thread.Sleep(3000);
