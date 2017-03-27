@@ -6,7 +6,7 @@ namespace Page_Models
 {
     public class RegisterNewUserPopup
     {
-        private IWebDriver _driver;
+        private Driver _driver;
         const string _birth_day = "birth_day";
         const string _birth_month = "birth_month";
         const string _birth_year = "birth_year";
@@ -17,10 +17,10 @@ namespace Page_Models
         const string _acceptCheckbox = "//span[@class='UICheckbox-fauxInput']";
         const string _signUpButtonAfterRegistration = "//button[@class='UIButton UIButton--fill UIButton--hero']";
         
-        public RegisterNewUserPopup(IWebDriver driver)
+        public RegisterNewUserPopup(Driver driver)
         {
             _driver = driver;
-            PageFactory.InitElements(_driver, this);
+            driver.InitializePageObject(this);
         }
 
         [FindsBy(How = How.Name, Using = _birth_day)]

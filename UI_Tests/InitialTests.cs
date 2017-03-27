@@ -12,7 +12,7 @@ namespace QuizletAutomation
         [Test]
         public void UserCanRegisterViaEmail()//main
         {
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver;poi = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("https://quizlet.com");
             driver.FindElement(By.LinkText("Начать")).Click();

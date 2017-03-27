@@ -1,13 +1,11 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Support.UI;
 
 namespace Page_Models
 {
     public class HomePage
     {
-        private IWebDriver _driver;
+        private Driver _driver;
         const string _buttonName = "Начать";
         const string _registrationPopupTitle = "//h3[@class='UIHeading UIHeading--three']/span[.='Зарегистрироваться']";
         const string _signUpButton = "//button[@class='UIButton']";
@@ -15,17 +13,17 @@ namespace Page_Models
         const string _birthdayTitle = "//legend[@class='UIFieldset-legend']/span[.='Дата рождения']";
         const string _welcomePopupTitle = "//div[@class='OnboardingContainer-title']";
 
-        public HomePage(IWebDriver driver)
+        public HomePage(Driver driver)
         {
             _driver = driver;
-            PageFactory.InitElements(_driver, this);
+            driver.InitializePageObject(this);
         }
 
         public string Title
         {
             get
             {
-                return _driver.Title;
+                return _driver.GetTitle();
             }
         }
 
@@ -46,5 +44,10 @@ namespace Page_Models
 
         [FindsBy(How = How.XPath, Using = _welcomePopupTitle)]
         public IWebElement WelcomePopupTitle { get; set; }
+
+        public void WaitWelcomePopup()
+        {
+            _driver.WaitElementUntilItVisible(_welcomePopupTitle, 5);
+        }
     }
 }

@@ -42,20 +42,22 @@ namespace QuizletAutomation
         public void Given_register_new_user_via_email_When_fill_required_fields_and_submit_Then_new_user_was_created()
         {
             HomePage homePage = new HomePage(_chromeDriver);
-            RegisterNewUserPopup registrationPage = new RegisterNewUserPopup(_chromeDriver);
+            RegisterNewUserPopup registrationPopup = new RegisterNewUserPopup(_chromeDriver);
             var newUser = new NewQuizletUser
             {
-                Username = "12NewUser",
-                Email = "12newUser@gmail.com",
+                Username = "VasyliiVasya",
+                Email = "vasylnewVasya@gmail.com",
                 Password = "1234qweRty/",
                 RetypePassword = "1234qweRty/"
             };
 
             homePage.GetStartedButton.Click();
             homePage.SignUpWithEmail.Click();
-            registrationPage.SelectBirthday("10", "февраль", "2001");
-            registrationPage.FillFieldsDuringRegistration(newUser);
-            registrationPage.SubmitNewUserCreation();
+            registrationPopup.SelectBirthday("10", "февраль", "1991");
+            registrationPopup.FillFieldsDuringRegistration(newUser);
+            registrationPopup.SubmitNewUserCreation();
+            homePage.WaitWelcomePopup();
+
             Assert.AreEqual(homePage.WelcomePopupTitle.Text, "Добро пожаловать в Quizlet!");            
         }
     }

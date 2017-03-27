@@ -1,19 +1,18 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using Page_Models;
 
 namespace QuizletAutomation
 {
     public class BaseTest
     {
-        protected IWebDriver _chromeDriver;
+        protected Driver _chromeDriver;
 
         [SetUp]
         public void InitializeDriver()
         {
-            _chromeDriver = new ChromeDriver();
-            _chromeDriver.Navigate().GoToUrl("https://quizlet.com");
-            _chromeDriver.Manage().Window.Maximize();
+            _chromeDriver = new Driver();
+            _chromeDriver.Initialize();
+            _chromeDriver.Navigate("https://quizlet.com");
         }
 
         [TearDown]
@@ -21,5 +20,6 @@ namespace QuizletAutomation
         {
             _chromeDriver.Quit();
         }
+
     }
 }
