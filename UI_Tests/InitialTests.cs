@@ -9,62 +9,62 @@ namespace QuizletAutomation
     [TestFixture]
     public class InitialTests
     {
-        [Test]
-        public void UserCanRegisterViaEmail()//main
-        {
-            IWebDriver;poi = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://quizlet.com");
-            driver.FindElement(By.LinkText("Начать")).Click();
-            driver.FindElement(By.XPath("//button[@class='UILink']")).Click();
-            //fill all inputs
-            new SelectElement(driver.FindElement(By.Name("birth_day"))).SelectByText("10");
-            new SelectElement(driver.FindElement(By.Name("birth_month"))).SelectByText("февраль");
-            new SelectElement(driver.FindElement(By.Name("birth_year"))).SelectByText("2001");
+        //[Test]
+        //public void UserCanRegisterViaEmail()//main
+        //{
+        //    IWebDriver driver = new ChromeDriver();
+        //    driver.Manage().Window.Maximize();
+        //    driver.Navigate().GoToUrl("https://quizlet.com");
+        //    driver.FindElement(By.LinkText("Начать")).Click();
+        //    driver.FindElement(By.XPath("//button[@class='UILink']")).Click();
+        //    //fill all inputs
+        //    new SelectElement(driver.FindElement(By.Name("birth_day"))).SelectByText("10");
+        //    new SelectElement(driver.FindElement(By.Name("birth_month"))).SelectByText("февраль");
+        //    new SelectElement(driver.FindElement(By.Name("birth_year"))).SelectByText("2001");
 
-            driver.FindElement(By.Name("username")).SendKeys("A6557test10" + Keys.Tab); Thread.Sleep(6000);
-            driver.FindElement(By.XPath("//div[@class='UIInput-content']/input[@name='email']")).SendKeys("1517te5st0@gmail.com" + Keys.Tab); Thread.Sleep(6000);
-            driver.FindElement(By.Name("password1")).SendKeys("tEST35478" + Keys.Tab); Thread.Sleep(3000);
-            driver.FindElement(By.Name("password2")).SendKeys("tEST35478" + Keys.Tab); Thread.Sleep(3000);
-            driver.FindElement(By.XPath("//span[@class='UICheckbox-fauxInput']")).Click();
-            driver.FindElement(By.XPath("//button[@class='UIButton UIButton--fill UIButton--hero']")).Click(); Thread.Sleep(6000);
-            string welcomeTitle = (driver.FindElement(By.XPath("//div[@class='OnboardingContainer-title']"))).Text;
+        //    driver.FindElement(By.Name("username")).SendKeys("A6557test10" + Keys.Tab); Thread.Sleep(6000);
+        //    driver.FindElement(By.XPath("//div[@class='UIInput-content']/input[@name='email']")).SendKeys("1517te5st0@gmail.com" + Keys.Tab); Thread.Sleep(6000);
+        //    driver.FindElement(By.Name("password1")).SendKeys("tEST35478" + Keys.Tab); Thread.Sleep(3000);
+        //    driver.FindElement(By.Name("password2")).SendKeys("tEST35478" + Keys.Tab); Thread.Sleep(3000);
+        //    driver.FindElement(By.XPath("//span[@class='UICheckbox-fauxInput']")).Click();
+        //    driver.FindElement(By.XPath("//button[@class='UIButton UIButton--fill UIButton--hero']")).Click(); Thread.Sleep(6000);
+        //    string welcomeTitle = (driver.FindElement(By.XPath("//div[@class='OnboardingContainer-title']"))).Text;
 
-            Assert.AreEqual(welcomeTitle, "Добро пожаловать в Quizlet!");
-            //driver.Close();
-        }
+        //    Assert.AreEqual(welcomeTitle, "Добро пожаловать в Quizlet!");
+        //    //driver.Close();
+        //}
 
-        [Test]
-        public void LoginFormIsActive()//main 
-        {
-            IWebDriver driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://quizlet.com");
-            driver.FindElement(By.XPath("//button[@class='UILink UILink--inverted']/span[.='Вход']")).Click();
-            string loginPageTitle = (driver.FindElement(
-                By.XPath("//h3[@class='UIHeading UIHeading--three']/span[.='Вход']"))).Text;
+        //[Test]
+        //public void LoginFormIsActive()//main 
+        //{
+        //    IWebDriver driver = new ChromeDriver();
+        //    driver.Manage().Window.Maximize();
+        //    driver.Navigate().GoToUrl("https://quizlet.com");
+        //    driver.FindElement(By.XPath("//button[@class='UILink UILink--inverted']/span[.='Вход']")).Click();
+        //    string loginPageTitle = (driver.FindElement(
+        //        By.XPath("//h3[@class='UIHeading UIHeading--three']/span[.='Вход']"))).Text;
 
-            Assert.AreEqual(loginPageTitle, "Вход");
-            driver.Close();
-        }
+        //    Assert.AreEqual(loginPageTitle, "Вход");
+        //    driver.Close();
+        //}
         
-        [Test]
-        public void UserCanLoginWithValidEmail()//main
-        {
-            IWebDriver driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://quizlet.com");
-            driver.FindElement(By.XPath("//button[@class='UILink UILink--inverted']/span[.='Вход']")).Click();
-            driver.FindElement(By.XPath("//div[@class='UIInput-content']/input[@name='username']"))
-                .SendKeys("A6557test10" + Keys.Tab); Thread.Sleep(3000);
-            driver.FindElement(By.XPath("//div[@class='UIInput-content']/input[@name='password']"))
-                .SendKeys("tEST35478" + Keys.Tab); Thread.Sleep(3000);
-            driver.FindElement(By.XPath("//button[@class='UIButton UIButton--fill UIButton--hero']")).Click(); Thread.Sleep(5000);
-            string welcomeTitle = (driver.FindElement(By.XPath("//div[@class='OnboardingContainer-title']"))).Text;
+        //[Test]
+        //public void UserCanLoginWithValidEmail()//main
+        //{
+        //    IWebDriver driver = new ChromeDriver();
+        //    driver.Manage().Window.Maximize();
+        //    driver.Navigate().GoToUrl("https://quizlet.com");
+        //    driver.FindElement(By.XPath("//button[@class='UILink UILink--inverted']/span[.='Вход']")).Click();
+        //    driver.FindElement(By.XPath("//div[@class='UIInput-content']/input[@name='username']"))
+        //        .SendKeys("A6557test10" + Keys.Tab); Thread.Sleep(3000);
+        //    driver.FindElement(By.XPath("//div[@class='UIInput-content']/input[@name='password']"))
+        //        .SendKeys("tEST35478" + Keys.Tab); Thread.Sleep(3000);
+        //    driver.FindElement(By.XPath("//button[@class='UIButton UIButton--fill UIButton--hero']")).Click(); Thread.Sleep(5000);
+        //    string welcomeTitle = (driver.FindElement(By.XPath("//div[@class='OnboardingContainer-title']"))).Text;
 
-            Assert.AreEqual(welcomeTitle, "Добро пожаловать в Quizlet!");
-            driver.Close();
-        }
+        //    Assert.AreEqual(welcomeTitle, "Добро пожаловать в Quizlet!");
+        //    driver.Close();
+        //}
 
         [Test]
         public void UserCanOpenCreateFirstModuleOnlyPage()//profile

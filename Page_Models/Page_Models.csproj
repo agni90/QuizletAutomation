@@ -54,10 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver.cs" />
-    <Compile Include="HomePage.cs" />
+    <Compile Include="Pages\HomePage.cs" />
     <Compile Include="NewQuizletUser.cs" />
+    <Compile Include="Pages\LoginPopup.cs" />
+    <Compile Include="Pages\ProfilePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterNewUserPopup.cs" />
+    <Compile Include="Pages\RegisterNewUserPopup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

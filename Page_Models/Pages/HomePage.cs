@@ -11,7 +11,7 @@ namespace Page_Models
         const string _signUpButton = "//button[@class='UIButton']";
         const string _signUpWithEmail = "//button[@class='UILink']";
         const string _birthdayTitle = "//legend[@class='UIFieldset-legend']/span[.='Дата рождения']";
-        const string _welcomePopupTitle = "//div[@class='OnboardingContainer-title']";
+        const string _loginLink = "//button[@class='UILink UILink--inverted']/span[.='Вход']";
 
         public HomePage(Driver driver)
         {
@@ -42,12 +42,7 @@ namespace Page_Models
         [FindsBy(How = How.XPath, Using = _birthdayTitle)]
         public IWebElement GetBirthdayTitle { get; set; }
 
-        [FindsBy(How = How.XPath, Using = _welcomePopupTitle)]
-        public IWebElement WelcomePopupTitle { get; set; }
-
-        public void WaitWelcomePopup()
-        {
-            _driver.WaitElementUntilItVisible(_welcomePopupTitle, 5);
-        }
+        [FindsBy(How = How.XPath, Using = _loginLink)]
+        public IWebElement LoginViaLink { get; set; }
     }
 }

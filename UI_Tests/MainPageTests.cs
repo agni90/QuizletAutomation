@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Page_Models;
+using Page_Models.Pages;
 
 namespace QuizletAutomation
 {
@@ -9,7 +10,7 @@ namespace QuizletAutomation
         [Test]
         public void Given_home_page_When_is_loaded_Then_verify_title()
         {
-            HomePage homePage = new HomePage( _chromeDriver);
+            HomePage homePage = new HomePage(_chromeDriver);
             Assert.AreEqual(homePage.Title, "Учебные средства и карточки – совершенно бесплатно | Quizlet");
         }
 
@@ -43,6 +44,7 @@ namespace QuizletAutomation
         {
             HomePage homePage = new HomePage(_chromeDriver);
             RegisterNewUserPopup registrationPopup = new RegisterNewUserPopup(_chromeDriver);
+            ProfilePage profilePage = new ProfilePage(_chromeDriver);
             var newUser = new NewQuizletUser
             {
                 Username = "VasyliiVasya",
@@ -56,9 +58,30 @@ namespace QuizletAutomation
             registrationPopup.SelectBirthday("10", "февраль", "1991");
             registrationPopup.FillFieldsDuringRegistration(newUser);
             registrationPopup.SubmitNewUserCreation();
-            homePage.WaitWelcomePopup();
+            profilePage.WaitWelcomePopup();
 
-            Assert.AreEqual(homePage.WelcomePopupTitle.Text, "Добро пожаловать в Quizlet!");            
+            Assert.AreEqual(profilePage.WelcomePopupTitle.Text, "Добро пожаловать в Quizlet!");
+        }
+
+        [Test]
+        public void Given_home_page_When_click_login_link_Then_login_form_is_shown()
+        {
+            HomePage homePage = new HomePage(_chromeDriver);
+            LoginPopup loginPopup = new LoginPopup(_chromeDriver);
+            homePage.LoginViaLink.Click();
+            Assert.AreEqual(loginPopup.LoginPopupTitle.Text, "Вход");
+        }
+
+        [Test]
+        public void Given_home_page_When_click_login_link_enter_email_and_submit_Then_user_can_login()
+        {
+            HomePage homePage = new HomePage(_chromeDriver);
+            LoginPopup loginPopup = new LoginPopup(_chromeDriver);
+            ProfilePage profilePage = new ProfilePage(_chromeDriver);
+            homePage.LoginViaLink.Click();
+            loginPopup.EnterCredentials("vasylnewVasya@gmail.com", "1234qweRty/");
+            loginPopup.SubmitLogin();
+            Assert.AreEqual(profilePage.WelcomePopupTitle.Text, "Добро пожаловать в Quizlet!");
         }
     }
 }

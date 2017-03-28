@@ -44,14 +44,5 @@ namespace Page_Models
                 sleep.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
             }
         }
-
-        public void WaitElementUntilTextChanged(string xpath, int seconds)
-        {
-            if (ChromeDriver != null)
-            {
-                var sleep = new WebDriverWait(ChromeDriver, TimeSpan.FromSeconds(seconds));
-                sleep.Until(ExpectedConditions.InvisibilityOfElementWithText(By.XPath(xpath), "New Wrestler"));
-            }
-        }
     }
 }
